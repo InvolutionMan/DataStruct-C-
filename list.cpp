@@ -87,6 +87,22 @@ Node*findNode(Node*head,int target)//按值查找节点
         }
         return nullptr;
     }
+Node*findNodeByIndex(Node*head,int index)//按索引查找节点
+{
+    if(index<0) return nullptr;
+    int a=0;
+    Node*cur=head;
+    while(cur!=NULL )
+    {
+        if(a==index)
+        {
+            return cur;
+        }
+        cur=cur->next;
+        a++;
+    }
+    return nullptr;
+}
 int main()
 {
     int n;
@@ -94,9 +110,23 @@ int main()
     Node*head=createListTail(n);
     printList(head);
     cout<<"长度是"<<length(head)<<endl;
-    Node*result=findNode(head,5);
+    int data1;
+    cout<<"请输入查找的数"<<endl;
+    cin>>data1;
+    Node*result=findNode(head,data1);
     if (result) {
         cout << "找到: " << result->data << endl;
+    } else {
+        cout << "未找到" << endl;
+    }
+    int data2;
+    cout<<"请输入查找的索引"<<endl;
+    cin>>data2;
+    Node*result2=findNodeByIndex(head,data2);
+    if (result2) {
+        cout << "找到: " << result2->data << endl;
+        cout<<"索引是"<<result2->data<<endl;
+
     } else {
         cout << "未找到" << endl;
     }
