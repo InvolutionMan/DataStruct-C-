@@ -12,7 +12,7 @@ struct Node
         next=NULL;
     }
 };
-Node *createListTail(int n)//尾插
+Node *createListTail(int n)//尾插创建链表
     {
         if(n<=0) return NULL;
         int x;
@@ -28,7 +28,7 @@ Node *createListTail(int n)//尾插
         }
         return head;
     }
- Node*createListHead(int n)//头插
+ Node*createListHead(int n)//头插创建链表
     {
         Node*head=NULL;
         for (int i=1;i<n;i++)
@@ -103,6 +103,43 @@ Node*findNodeByIndex(Node*head,int index)//按索引查找节点
     }
     return nullptr;
 }
+Node*insertNodeHead(Node*head,int val)//从头插入
+{
+    Node*newNode=new Node(val);
+    newNode->next=head;
+    return newNode;
+}
+Node*insertNodeTail(Node*head,int val)//从尾插入
+{
+    Node*newNode=new Node(val);
+    if(head==NULL) return newNode;
+    Node*cur=head;
+    while(cur->next!=NULL)
+    {
+        cur=cur->next;
+
+    }
+    cur->next=newNode;
+    return head;
+}
+Node*insertNode(Node*head,int index,int val)//插入节点
+{
+    if(index<=1) return insertNodeHead(head,val);
+    Node*cur=head;
+    int a=1;
+    while(cur!=nullptr&&a<index-1)
+    {
+        cur=cur->next;
+        a++;
+    }
+    if(cur==nullptr) return head;
+    Node*newNode=new Node(val);
+    newNode->next=cur->next;
+    cur->next=newNode;
+    return head;
+
+}
+
 int main()
 {
     int n;

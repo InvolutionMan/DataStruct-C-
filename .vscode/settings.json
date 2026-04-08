@@ -11,6 +11,7 @@
 
   "editor.mouseWheelScrollSensitivity": 1.5,
   "editor.fastScrollSensitivity": 3,
+  
 
   "editor.minimap.enabled": false,
   "editor.renderLineHighlight": "all",
