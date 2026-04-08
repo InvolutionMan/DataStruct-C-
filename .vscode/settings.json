@@ -1,0 +1,26 @@
+{
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.smoothScrolling": true,
+  "workbench.list.smoothScrolling": true,
+  "terminal.integrated.smoothScrolling": true,
+
+  "editor.cursorBlinking": "smooth",
+  "editor.cursorWidth": 2,
+  "window.commandCenter": true,
+  "window.zoomLevel": 0.5,
+
+  "editor.mouseWheelScrollSensitivity": 1.5,
+  "editor.fastScrollSensitivity": 3,
+
+  "editor.minimap.enabled": false,
+  "editor.renderLineHighlight": "all",
+  "editor.fontLigatures": true,
+
+  "editor.fontSize": 20,
+  "editor.lineHeight": 30,
+  "editor.letterSpacing": 0.3,
+
+  "workbench.tree.indent": 16,
+  "editor.padding.top": 8,
+  "editor.padding.bottom": 8
+}
