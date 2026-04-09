@@ -88,6 +88,40 @@ public:
         }
     }
 };
+struct Node //链表节点
+{
+    int data;
+    Node *next;
+};
+struct LinkQueue //链表队列
+{
+    Node*front;
+    Node*rear;
+};
+auto InitQueue(LinkQueue &q) //初始化队列
+{
+    q.front=q.rear=new Node;
+    q.front->next=nullptr;
+}
+auto EnQueue(LinkQueue &q,int x) //入队
+{
+    Node*s=new Node;
+    s->data=x;
+    s->next=nullptr;
+    q.rear->next=s; //队尾节点指向新节点
+    q.rear=s;   //队尾指针移到新节点
+}
+auto DeQueue(LinkQueue &q,int &x) //出队
+{
+    if(q.front==q.rear) return false;
+    x=q.front->next->data;
+    q.front->next=q.front->next->next;
+    if(q.front->next==nullptr) q.rear=q.front;
+    delete q.front->next;
+    return true;
+}
+
+
 int main()
 {
     Que q;
