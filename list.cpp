@@ -137,11 +137,34 @@ Node*insertNode(Node*head,int index,int val)//插入节点
     newNode->next=cur->next;
     cur->next=newNode;
     return head;
-
 }
+Node*deleteNode(Node*head,int val)//删除节点
+{
+        Node*cur=head;
+        if(head==nullptr) return NULL;
+        if(head->data==val)//头结点删除
+        {
+            Node*temp_Delete=head;
+            head=head->next;
+            delete temp_Delete;
+            return head;
+        }
+        while(cur->next!=nullptr&&cur->next->data!=val)//查找前一个节点
+        {
+            cur=cur->next;
+        }
 
+        if(cur->next!=NULL)//找到再删除
+        {
+            Node*temp_Delete=cur->next;
+            cur->next=cur->next->next;
+            delete temp_Delete;
+        }
+        return head;
+}
 int main()
 {
+    cout<<"请输入链表的长度和数据"<<endl;
     int n;
     cin>>n;
     Node*head=createListTail(n);
@@ -167,4 +190,36 @@ int main()
     } else {
         cout << "未找到" << endl;
     }
+    int number1;
+    cout<<"请输入头插入的数"<<endl;
+    cin>>number1;
+    head=insertNodeHead(head,number1);
+    cout<<"头插入成功,当前链表为:";
+    printList(head);
+    cout<<endl;
+    int number2;
+    cout<<"请输入尾插入的数"<<endl;
+    cin>>number2;
+    head=insertNodeTail(head,number2);
+    cout<<"尾插入成功,当前链表为:";
+    printList(head); 
+    cout<<endl;
+    int index,number3;
+    cout<<"请输入插入的索引"<<endl;
+    cin>>index;
+    cout<<"请输入插入的数"<<endl;
+    cin>>number3;
+    head=insertNode(head,index,number3);
+    cout<<"插入成功,当前链表为:";
+    printList(head);
+    cout<<endl;
+    int number4;
+    cout<<"请输入删除的数"<<endl;
+    cin>>number4;
+    head=deleteNode(head,number4);
+    cout<<"删除成功,当前链表为:";
+    printList(head);
+    cout<<endl;
+    
+
 }
