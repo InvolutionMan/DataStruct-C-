@@ -17,12 +17,13 @@ int kmp(string s, string p) {
         while (j > 0 && s[i] != p[j]) j = next[j - 1];
         if (s[i] == p[j]) j++;
         if (j == p.size()) return i - p.size() + 1;
+        cout<<"Found at "<<i-j+1<<endl;
     }
-    return -1;
+    cout<<"Not Found"<<endl;
 }
 
 
 int main()
 {
-
+    cout << kmp("ababababab", "abc") << endl;
 }
