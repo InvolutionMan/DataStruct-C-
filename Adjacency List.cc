@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-void DFS(int node,vector<vector<int>> &graph, vector<bool>& visited)
+void DFS(int node,vector<vector<int>> &graph, vector<bool>& visited)//vector<vector<int>>表示二维，vector<vector<int>> &graph表示拷贝数组
 {
     cout<<node<<" ";
     visited[node] = true;
@@ -33,6 +33,39 @@ void BFS(int start, vector<vector<int>>& graph)
             }
         }
     }
+}
+vector<int>BFS_MIN_DISTANCE(int start,int end, vector<vector<int>>& graph)
+{
+    vector<int> parent(graph.size(), -1);//记录路径
+    vector<bool> visited(graph.size(), false); //判断是否访问过，graph.size()表示节点个数
+    queue<int> q;  //创建队列
+    q.push(start);
+    visited[start]=true;
+    while(!q.empty())
+    {
+        int node = q.front();
+        q.pop();
+        if(node==end) break;
+        for(int neighbor : graph[node])
+        {
+            if(!visited[neighbor])
+            {
+                q.push(neighbor);
+                visited[neighbor]=true;
+                parent[neighbor] = node;
+            }
+        }
+    }
+    if (!visited[end]) return {};//不可达
+    //获取路径
+    vector<int> path;
+    for(int v=end;v!=-1;v=parent[v])
+    {
+        path.push_back(v);
+
+    }
+    reverse(path.begin(), path.end());
+    return path;
 }
 
 int main() {
@@ -68,5 +101,14 @@ int main() {
     cout << "\n\nBFS遍历：" << endl;
     BFS(0, graph);
 
+    cout << "\n\n最短路径 (0 -> 3):" << endl;
+    vector<int> path = BFS_MIN_DISTANCE(0, 3, graph);
+
+    for (int x : path)
+    {
+        cout << x << " ";
+    }
+        cout << endl;
+    
     return 0;
 }
