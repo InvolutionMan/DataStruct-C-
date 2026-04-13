@@ -8,6 +8,8 @@
   "editor.cursorWidth": 2,
   "window.commandCenter": true,
   "window.zoomLevel": 0.5,
+  "editor.fontFamily": "'JetBrains Mono', monospace",
+  "terminal.integrated.fontFamily": "JetBrains Mono",
 
   "editor.mouseWheelScrollSensitivity": 1.5,
   "editor.fastScrollSensitivity": 3,

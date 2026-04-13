@@ -28,7 +28,8 @@ int main() {
     for (auto &e : edges)  //枚举边
     {
         int fu = find(e.u), fv = find(e.v);//找到两个端点的根
-        if (fu != fv) {
+        if (fu != fv) 
+        {
             fa[fu] = fv; //合并两个集合
             ans += e.w;
             cnt++;
