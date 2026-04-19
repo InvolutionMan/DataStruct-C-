@@ -10,7 +10,7 @@ auto partition(int arry[],int low,int high)
         while(i<j&&arry[j]>=pivot) j--;
         arry[j]=arry[i];
         while(i<j&&arry[i]<=pivot) i++;
-        arry[i]=arry[i];
+        arry[i]=arry[j];
     }
     arry[i]=pivot;
     return i;
